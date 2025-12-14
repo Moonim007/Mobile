@@ -29,11 +29,22 @@ class _MyHomePageState extends State<MyHomePage> {
   String num2 = "";
   String oprator = "";
   String showval = "0";
+  double sqrtManual(double x) {
+  if (x < 0) return 0;
+  if (x == 0) return 0;
+
+  double guess = x / 2;
+  for (int i = 0; i < 10; i++) {
+    guess = (guess + x / guess) / 2;
+  }
+  return guess;
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Calculator STF"),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -46,250 +57,33 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "7";
-                        showval = num1;
-                      } else {
-                        num2 += "7";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("7"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "8";
-                        showval = num1;
-                      } else {
-                        num2 += "8";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("8"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "9";
-                        showval = num1;
-                      } else {
-                        num2 += "9";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("9"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      oprator = "+";
-                    });
-                  },
-                  child: Text("+"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 10,
-            ),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "7";showval = num1;} else {num2 += "7";showval = num2;}});},child: Text("7"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "8";showval = num1;} else {num2 += "8";showval = num2;}});},child: Text("8"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "9";showval = num1;} else {num2 += "9";showval = num2;}});},child: Text("9"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {oprator = "+";});},child: Text("+"),),SizedBox(width: 10,),],),SizedBox(width: 10,),
+              SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "4";
-                        showval = num1;
-                      } else {
-                        num2 += "4";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("4"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "5";
-                        showval = num1;
-                      } else {
-                        num2 += "5";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("5"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "6";
-                        showval = num1;
-                      } else {
-                        num2 += "6";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("6"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      oprator = "-";
-                    });
-                  },
-                  child: Text("-"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 10,
-            ),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "4";showval = num1;} else {num2 += "4";showval = num2;}});},child: Text("4"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "5";showval = num1;} else {num2 += "5";showval = num2;}});},child: Text("5"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "6";showval = num1;} else {num2 += "6";showval = num2;}});},child: Text("6"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {oprator = "-";});},child: Text("-"),),SizedBox(width: 10,),],),SizedBox(width: 10,),
+              SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "1";
-                        showval = num1;
-                      } else {
-                        num2 += "1";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("1"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "2";
-                        showval = num1;
-                      } else {
-                        num2 += "2";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("2"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "3";
-                        showval = num1;
-                      } else {
-                        num2 += "3";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("3"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      oprator = "*";
-                    });
-                  },
-                  child: Text("*"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 10,
-            ),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "1";showval = num1;} else {num2 += "1";showval = num2;}});},child: Text("1"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "2";showval = num1;} else {num2 += "2";showval = num2;}});},child: Text("2"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "3";showval = num1;} else {num2 += "3";showval = num2;}});},child: Text("3"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {oprator = "*";});},child: Text("*"),),SizedBox(width: 10,),],),SizedBox(width: 10,),
+              SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      num2 = "";
-                      num1 = "";
-                      oprator = "";
-                      showval = "";
-                    });
-                  },
-                  child: Text("C"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      if (oprator.isEmpty) {
-                        num1 += "0";
-                        showval = num1;
-                      } else {
-                        num2 += "0";
-                        showval = num2;
-                      }
-                    });
-                  },
-                  child: Text("0"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
+                FloatingActionButton(backgroundColor: Colors.deepPurpleAccent,foregroundColor: Colors.white,onPressed: () {setState(() {num2 = "";num1 = "";oprator = "";showval = "";});},child: Text("C"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {if (oprator.isEmpty) {num1 += "0";showval = num1;} else {num2 += "0";showval = num2;}});},child: Text("0"),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {
                       if (num1 == "" || num2 == "") return;
                       double newnum1 = double.parse(num1);
                       double newnum2 = double.parse(num2);
@@ -298,33 +92,44 @@ class _MyHomePageState extends State<MyHomePage> {
                       if (oprator == "-") result = newnum1 - newnum2;
                       if (oprator == "*") result = newnum1 * newnum2;
                       if (oprator == "/") result = newnum1 / newnum2;
+                      if (oprator == "^") {result = newnum1;
+                      for (int i = 1; i < newnum2; i++) {
+                        result *= newnum1;
+                        }}
+                      if (oprator == "%") {
+                        result = (newnum1 / 100) * newnum2;
+                        }
                       showval = result.toString();
                       num1 = result.toString();
                       num2 = "";
-                      oprator = "";
-                    });
-                  },
-                  child: Text("="),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                FloatingActionButton(
-                  onPressed: () {
-                    setState(() {
-                      oprator = "/";
-                    });
-                  },
-                  child: Text("/"),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
+                      oprator = "";});},child: Text("="),),SizedBox(width: 10,),
+                FloatingActionButton(onPressed: () {setState(() {oprator = "/";});},child: Text("/"),),SizedBox(width: 10,),],),
+                SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(backgroundColor: Colors.blue,foregroundColor: Colors.white,onPressed: () {setState(() {if (oprator.isEmpty) {if (num1.isNotEmpty) {num1 = num1.substring(0, num1.length - 1);showval = num1.isEmpty ? "0" : num1;}} else {if (num2.isNotEmpty) {num2 = num2.substring(0, num2.length - 1);showval = num2.isEmpty ? "0" : num2;}}});},child: Text("DEL"),),SizedBox(width: 10,),
+                FloatingActionButton(backgroundColor: Colors.deepOrange,foregroundColor: Colors.white,onPressed: () {setState(() {
+                   if (num1.isNotEmpty) {
+                    oprator = "%";
+                    }
+                  });},child: Text("%"),),SizedBox(width: 10,),
+                FloatingActionButton(backgroundColor: Colors.deepOrange,foregroundColor: Colors.white,onPressed: () {setState(() {oprator = "^";});},child: Text("^"),),SizedBox(width: 10,),
+                FloatingActionButton(backgroundColor: Colors.deepOrange,foregroundColor: Colors.white,onPressed: () {setState(() {if (oprator.isEmpty && num1.isNotEmpty) {
+                  double v = double.parse(num1);
+                  double r = sqrtManual(v);num1 = r.toString();
+                  showval = num1;
+                  } else if (num2.isNotEmpty) {
+                    double v = double.parse(num2);double r = sqrtManual(v);
+                    num2 = r.toString();
+                    showval = num2;
+                  }});},child: Text("√"),),SizedBox(width: 10,),],),
           ],
         ),
       ),
     );
   }
 }
+
+
+
